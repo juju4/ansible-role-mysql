@@ -99,6 +99,11 @@ mysql_log: ""
 # mysql_log_error: /var/log/mysql/mysql.err
 # mysql_syslog_tag: mysql
 
+# Security
+mysql_skip_networking: false
+#mysql_secure_file_priv: '/usr/local/mysql-files'
+mysql_disable_local_infile: true
+
 mysql_config_include_files: []
 #  - src: path/relative/to/playbook/file.cnf
 #  - { src: path/relative/to/playbook/anotherfile.cnf, force: yes }
