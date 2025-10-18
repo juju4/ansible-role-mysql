@@ -20,7 +20,7 @@ sql_mode = {{ mysql_sql_mode }}
 {% if mysql_skip_networking %}
 skip-networking = {{ mysql_skip_networking }}
 {% endif %}
-{% if mysql_secure_file_priv|length %}
+{% if mysql_secure_file_priv is defined and mysql_secure_file_priv|length > 0 %}
 secure_file_priv = "{{ mysql_secure_file_priv | default('/usr/local/mysql-files') }}"
 {% elif mysql_disable_local_infile %}
 set-variable = local-infile=0
