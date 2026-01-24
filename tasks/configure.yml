@@ -71,13 +71,8 @@
   args:
     creates: "{{ mysql_log_error }}"
   when:
-<<<<<<< HEAD
-    - mysql_log | default(true) | bool
-    - mysql_log_error | default(false) | bool
-=======
     - ((mysql_log is defined) and (mysql_log | length > 0)) | default(true)
     - ((mysql_log_error is defined) and (mysql_log_error | length > 0)) | default(true)
->>>>>>> master
   tags: ['skip_ansible_galaxy']
 
 - name: Set ownership on error log file (if configured).
@@ -88,13 +83,8 @@
     group: "{{ mysql_log_file_group }}"
     mode: 0640
   when:
-<<<<<<< HEAD
-    - mysql_log | default(true)  | bool
-    - mysql_log_error | default(false) | bool
-=======
     - ((mysql_log is defined) and (mysql_log | length > 0)) | default(true)
     - ((mysql_log_error is defined) and (mysql_log_error | length > 0)) | default(true)
->>>>>>> master
   tags: ['skip_ansible_galaxy']
 
 - name: Ensure MySQL is started and enabled on boot.
